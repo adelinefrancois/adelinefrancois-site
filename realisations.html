@@ -114,92 +114,7 @@
     <button class="filtre-btn" data-filtre="divers">Divers</button>
   </div>
 
-  <section class="galerie-section">
-
-    <div class="galerie-categorie" data-cat="trompe-loeil">
-      <div class="cat-titre">
-        <h2>Trompe-l'œil</h2>
-        <div class="cat-ligne"></div>
-      </div>
-      <div class="galerie-masonry">
-        <div class="galerie-item fade-in">
-          <img src="images/real-5.jpeg" alt="Grisaille en technique ancienne">
-          <div class="galerie-legende"><span>Grisaille en technique ancienne (vernis Damar)</span></div>
-        </div>
-        <div class="galerie-item fade-in">
-          <img src="images/real-9.jpeg" alt="Faux ciel">
-          <div class="galerie-legende"><span>Faux ciel</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="galerie-categorie" data-cat="dorure">
-      <div class="cat-titre">
-        <h2>Dorures &amp; techniques précieuses</h2>
-        <div class="cat-ligne"></div>
-      </div>
-      <div class="galerie-masonry">
-        <div class="galerie-item fade-in">
-          <img src="images/real-2.jpeg" alt="Dorure à la détrempe">
-          <div class="galerie-legende"><span>Dorure à la détrempe et peinture à la colle de peau</span></div>
-        </div>
-        <div class="galerie-item fade-in">
-          <img src="images/real-3.jpeg" alt="Peinture sur feuille de cuivre">
-          <div class="galerie-legende"><span>Peinture sur feuille de cuivre</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="galerie-categorie" data-cat="fresque">
-      <div class="cat-titre">
-        <h2>Fresques &amp; décors</h2>
-        <div class="cat-ligne"></div>
-      </div>
-      <div class="galerie-masonry">
-        <div class="galerie-item fade-in">
-          <img src="images/real-1.jpeg" alt="Rosace, peinture acrylique">
-          <div class="galerie-legende"><span>Rosace, peinture acrylique</span></div>
-        </div>
-        <div class="galerie-item fade-in">
-          <img src="images/real-4.jpeg" alt="Décor théâtral à la gigouille">
-          <div class="galerie-legende"><span>Décor théâtral à la gigouille</span></div>
-        </div>
-        <div class="galerie-item fade-in">
-          <img src="images/real-10.jpeg" alt="Fresque art nouveau">
-          <div class="galerie-legende"><span>Fresque à fresco inspiration art nouveau</span></div>
-        </div>
-        <div class="galerie-item fade-in">
-          <img src="images/real-11.jpeg" alt="Nature morte">
-          <div class="galerie-legende"><span>Nature morte</span></div>
-        </div>
-        <div class="galerie-item fade-in">
-          <img src="images/real-12.jpeg" alt="Sgrafitto inspiration art nouveau">
-          <div class="galerie-legende"><span>Sgrafitto inspiration art nouveau</span></div>
-        </div>
-        <div class="galerie-item fade-in">
-          <img src="images/real-13.jpeg" alt="Panoramique">
-          <div class="galerie-legende"><span>Panoramique</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="galerie-categorie" data-cat="divers">
-      <div class="cat-titre">
-        <h2>Divers</h2>
-        <div class="cat-ligne"></div>
-      </div>
-      <div class="galerie-masonry">
-        <div class="galerie-item fade-in">
-          <img src="images/real-7.jpeg" alt="Faux carrelage effet azulejos">
-          <div class="galerie-legende"><span>Faux carrelage effet azulejos</span></div>
-        </div>
-        <div class="galerie-item fade-in">
-          <img src="images/real-8.jpeg" alt="Lettrage">
-          <div class="galerie-legende"><span>Lettrage</span></div>
-        </div>
-      </div>
-    </div>
-
+  <section class="galerie-section" id="galerie-container">
   </section>
 
   <section style="background: var(--lin); padding: 5rem var(--side); text-align: center; border-top: 0.5px solid var(--greige);">
@@ -255,7 +170,13 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Lightbox
+    const CATEGORIES = {
+      'trompe-loeil': "Trompe-l'œil",
+      'dorure': "Dorures & techniques précieuses",
+      'fresque': "Fresques & décors",
+      'divers': "Divers"
+    };
+
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     const lbLegende = document.getElementById('lightbox-legende');
@@ -289,16 +210,14 @@
     function showPrev() { current = (current - 1 + images.length) % images.length; openLightbox(current); }
     function showNext() { current = (current + 1) % images.length; openLightbox(current); }
 
-    buildImageList();
-
-    document.querySelectorAll('.galerie-masonry .galerie-item img').forEach(img => {
+    function attachLightbox(img) {
       img.style.cursor = 'zoom-in';
       img.addEventListener('click', () => {
         buildImageList();
         const idx = images.findIndex(im => im.src === img.src);
         openLightbox(idx >= 0 ? idx : 0);
       });
-    });
+    }
 
     document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
     document.getElementById('lightbox-prev').addEventListener('click', e => { e.stopPropagation(); showPrev(); });
@@ -323,6 +242,53 @@
         buildImageList();
       });
     });
+
+    fetch('/_data/realisations.json')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('galerie-container');
+        const grouped = {};
+        data.items.forEach(item => {
+          if (!grouped[item.categorie]) grouped[item.categorie] = [];
+          grouped[item.categorie].push(item);
+        });
+
+        Object.entries(CATEGORIES).forEach(([catKey, catLabel]) => {
+          if (!grouped[catKey] || grouped[catKey].length === 0) return;
+          const section = document.createElement('div');
+          section.className = 'galerie-categorie';
+          section.dataset.cat = catKey;
+
+          const titreLabel = catLabel.replace(/&/g, '&amp;');
+          section.innerHTML = `
+            <div class="cat-titre">
+              <h2>${titreLabel}</h2>
+              <div class="cat-ligne"></div>
+            </div>
+            <div class="galerie-masonry"></div>
+          `;
+
+          const masonry = section.querySelector('.galerie-masonry');
+          grouped[catKey].forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'galerie-item fade-in';
+            const img = document.createElement('img');
+            img.src = item.image;
+            img.alt = item.legende;
+            const legende = document.createElement('div');
+            legende.className = 'galerie-legende';
+            legende.innerHTML = `<span>${item.legende}</span>`;
+            div.appendChild(img);
+            div.appendChild(legende);
+            masonry.appendChild(div);
+            attachLightbox(img);
+          });
+
+          container.appendChild(section);
+        });
+
+        buildImageList();
+      });
   </script>
 </body>
 </html>
