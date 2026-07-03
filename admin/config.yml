@@ -35,6 +35,7 @@ collections:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Légende", name: "legende", widget: "string" }
               - { label: "Description", name: "description", widget: "string", required: false }
+              - { label: "Catégorie", name: "categorie", widget: "select", options: ["trompe-loeil", "dorure", "fresque", "divers"] }
 
   - name: "materiautheque"
     label: "Matériauthèque"
@@ -50,3 +51,18 @@ collections:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Nom", name: "nom", widget: "string" }
               - { label: "Description", name: "description", widget: "string" }
+              - { label: "Catégorie", name: "categorie", widget: "select", options: ["faux-marbres", "faux-bois", "patines"] }
+
+  - name: "parametres"
+    label: "Paramètres du site"
+    files:
+      - name: "infos"
+        label: "Informations de contact"
+        file: "_data/parametres.json"
+        fields:
+          - { label: "Téléphone", name: "telephone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Zones d'intervention"
+            name: "zones"
+            widget: "list"
+            field: { label: "Zone", name: "zone", widget: "string" }
