@@ -1,0 +1,54 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: 'fr'
+
+collections:
+  - name: "blog"
+    label: "Articles de blog"
+    folder: "_articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "titre", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Image de couverture", name: "image", widget: "image", required: false }
+      - { label: "Catégorie", name: "categorie", widget: "select", options: ["Histoire de la peinture", "Techniques", "Matières", "Événements"] }
+      - { label: "Extrait", name: "extrait", widget: "text", required: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  - name: "realisations"
+    label: "Réalisations"
+    file: "_data/realisations.json"
+    fields:
+      - label: "Réalisations"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Légende", name: "legende", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
+
+  - name: "materiautheque"
+    label: "Matériauthèque"
+    file: "_data/materiautheque.json"
+    fields:
+      - label: "Échantillons"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Nom", name: "nom", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+
+  - name: "parametres"
+    label: "Paramètres du site"
+    file: "_data/parametres.json"
+    fields:
+      - { label: "Téléphone", name: "telephone", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "Zones d'intervention", name: "zones", widget: "list", field: { label: "Zone", name: "zone", widget: "string" } }
