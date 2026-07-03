@@ -23,32 +23,30 @@ collections:
 
   - name: "realisations"
     label: "Réalisations"
-    file: "_data/realisations.json"
-    fields:
-      - label: "Réalisations"
-        name: "items"
-        widget: "list"
+    files:
+      - name: "liste"
+        label: "Liste des réalisations"
+        file: "_data/realisations.json"
         fields:
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "Légende", name: "legende", widget: "string" }
-          - { label: "Description", name: "description", widget: "string", required: false }
+          - label: "Réalisations"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Légende", name: "legende", widget: "string" }
+              - { label: "Description", name: "description", widget: "string", required: false }
 
   - name: "materiautheque"
     label: "Matériauthèque"
-    file: "_data/materiautheque.json"
-    fields:
-      - label: "Échantillons"
-        name: "items"
-        widget: "list"
+    files:
+      - name: "liste"
+        label: "Liste des échantillons"
+        file: "_data/materiautheque.json"
         fields:
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "Nom", name: "nom", widget: "string" }
-          - { label: "Description", name: "description", widget: "string" }
-
-  - name: "parametres"
-    label: "Paramètres du site"
-    file: "_data/parametres.json"
-    fields:
-      - { label: "Téléphone", name: "telephone", widget: "string" }
-      - { label: "Email", name: "email", widget: "string" }
-      - { label: "Zones d'intervention", name: "zones", widget: "list", field: { label: "Zone", name: "zone", widget: "string" } }
+          - label: "Échantillons"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
