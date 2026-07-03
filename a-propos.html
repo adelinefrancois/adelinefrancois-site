@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Adeline François, Peintre en décor</title>
+  <meta name="description" content="Adeline François, peintre en décor et artiste. Formation, parcours et philosophie au service de projets d'exception.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .page-hero {
+      margin-top: var(--nav-h);
+      padding: 5rem var(--side) 3rem;
+      background: var(--lin);
+      border-bottom: 0.5px solid var(--greige);
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .apropos-main {
+      padding: 6rem var(--side);
+      background: var(--ivoire);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .apropos-photo-wrap {
+      position: sticky;
+      top: calc(var(--nav-h) + 2rem);
+    }
+    .apropos-photo-grande {
+      aspect-ratio: 3/4;
+      background: var(--lin);
+      position: relative;
+      overflow: hidden;
+    }
+    .apropos-photo-grande::after {
+      content: '';
+      position: absolute;
+      top: 1.5rem; left: 1.5rem; right: -1.5rem; bottom: -1.5rem;
+      border: 0.5px solid var(--or);
+      pointer-events: none;
+    }
+    .apropos-texte {
+      display: flex; flex-direction: column; gap: 3rem;
+    }
+    .apropos-bloc { display: flex; flex-direction: column; gap: 1rem; }
+    .apropos-bloc p { font-size: 14px; line-height: 1.9; opacity: 0.75; }
+
+    .valeurs {
+      padding: 6rem var(--side);
+      background: var(--lin);
+      border-top: 0.5px solid var(--greige);
+    }
+    .valeurs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5px;
+      background: var(--greige);
+      border: 0.5px solid var(--greige);
+      margin-top: 3rem;
+    }
+    .valeur-card {
+      background: var(--lin);
+      padding: 2.5rem 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .valeur-num {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 36px; color: var(--or); opacity: 0.35; line-height: 1;
+    }
+    .valeur-titre { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 400; color: var(--encre); }
+    .valeur-texte { font-size: 13px; line-height: 1.9; opacity: 0.7; }
+
+    .formations {
+      padding: 6rem var(--side);
+      background: var(--ivoire);
+      border-top: 0.5px solid var(--greige);
+    }
+    .frise {
+      margin-top: 3rem;
+      display: flex; flex-direction: column; gap: 0;
+      position: relative;
+    }
+    .frise::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 8px;
+      width: 0.5px; background: var(--greige);
+    }
+    .frise-item {
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: 2rem; padding: 0 0 2.5rem 0; position: relative;
+    }
+    .frise-annee {
+      font-size: 9px; letter-spacing: 0.3em; color: var(--or);
+      text-transform: uppercase; font-weight: 400;
+      padding-top: 2px; padding-left: 1.2rem;
+    }
+    .frise-dot {
+      position: absolute;
+      left: -4px; top: 6px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--ivoire); border: 0.5px solid var(--or);
+    }
+    .frise-contenu { display: flex; flex-direction: column; gap: 4px; }
+    .frise-titre { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400; }
+    .frise-detail { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; opacity: 0.65; }
+
+    @media (max-width: 900px) {
+      .apropos-main { grid-template-columns: 1fr; gap: 3rem; }
+      .apropos-photo-wrap { position: static; }
+      .valeurs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo-or.png" alt="Monogramme AF">
+      <div class="nav-logo-text">
+        <span>Adeline François</span>
+        <span>Peintre en décor</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="realisations.html">Réalisations</a></li>
+      <li><a href="materiautheque.html">Matériauthèque</a></li>
+      <li><a href="a-propos.html" class="active">À propos</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="nav-contact">Contact</a>
+    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="realisations.html">Réalisations</a>
+    <a href="materiautheque.html">Matériauthèque</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-hero">
+    <p class="label fade-in">Rencontre</p>
+    <div class="separateur"></div>
+    <h1 class="titre-section fade-in">Adeline François</h1>
+    <p class="accent fade-in" style="font-size: 20px; opacity: 0.65;">Peintre en décor &amp; artiste</p>
+  </div>
+
+  <section class="apropos-main">
+    <div class="apropos-photo-wrap fade-in">
+      <div class="apropos-photo-grande">
+        <img src="images/A propos.jpg" alt="Adeline François" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <p class="apropos-signature" style="margin-top: 1.5rem; padding-left: 0.5rem; font-size: 24px;">Adeline François</p>
+    </div>
+
+    <div class="apropos-texte">
+      <div class="apropos-bloc fade-in">
+        <p class="label">Parcours</p>
+        <div class="or-line"></div>
+        <h2 class="titre-section">Une passion construite pas à pas</h2>
+        <p class="accent" style="font-size: 20px; opacity: 0.7;">L'amour de la matière et du geste juste</p>
+        <p>C'est par la formation et la curiosité que je me suis tournée vers la peinture décorative — des techniques qui demandent du temps, de la répétition et une vraie sensibilité à la matière. Faux-marbres, patines, trompe-l'œil, dorures : chaque technique s'apprend dans les détails, et chaque chantier enseigne quelque chose de nouveau.</p>
+      </div>
+
+      <div class="apropos-bloc fade-in">
+        <p class="label">Approche</p>
+        <div class="or-line"></div>
+        <h2 class="titre-section">À l'écoute de votre espace</h2>
+        <p>Chaque projet commence par un échange — comprendre vos envies, l'atmosphère que vous souhaitez créer, les contraintes du lieu. C'est à partir de cette discussion que je propose des pistes : des matières, des teintes, des techniques adaptées à votre espace et à votre budget.</p>
+        <p>Je travaille soigneusement et avec rigueur. Ce que je propose, je le réalise moi-même, à la main, avec les matériaux et les gestes qui conviennent.</p>
+      </div>
+
+      <div class="apropos-bloc fade-in">
+        <p class="label">Zone d'intervention</p>
+        <div class="or-line"></div>
+        <h2 class="titre-section">Où j'interviens</h2>
+        <p>J'interviens principalement en Sarthe et dans les départements environnants. Je peux également me déplacer plus loin selon la nature du projet — n'hésitez pas à me contacter pour en discuter.</p>
+        <a href="contact.html" class="btn-lien" style="margin-top: 0.5rem;">Prendre contact</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="valeurs">
+    <div class="section-header fade-in">
+      <p class="label">Engagement</p>
+      <div class="separateur"></div>
+      <h2 class="titre-section">Mes valeurs</h2>
+    </div>
+    <div class="valeurs-grid">
+      <div class="valeur-card fade-in">
+        <div class="valeur-num">01</div>
+        <h3 class="valeur-titre">Excellence artisanale</h3>
+        <p class="valeur-texte">Des techniques transmises par les maîtres, pratiquées avec rigueur et respect des traditions — jamais au détriment de la créativité.</p>
+      </div>
+      <div class="valeur-card fade-in">
+        <div class="valeur-num">02</div>
+        <h3 class="valeur-titre">Sur-mesure absolu</h3>
+        <p class="valeur-texte">Chaque projet est unique. Aucune recette, aucun effet de stock : tout est pensé, mélangé, posé spécifiquement pour votre espace.</p>
+      </div>
+      <div class="valeur-card fade-in">
+        <div class="valeur-num">03</div>
+        <h3 class="valeur-titre">Dialogue &amp; confiance</h3>
+        <p class="valeur-texte">Un chantier réussi est avant tout une relation réussie. J'accorde autant d'importance à l'écoute qu'à l'exécution.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="formations">
+    <div class="section-header fade-in">
+      <p class="label">Formation &amp; expérience</p>
+      <div class="separateur"></div>
+      <h2 class="titre-section">Parcours</h2>
+    </div>
+    <div class="frise">
+      <div class="frise-item fade-in">
+        <p class="frise-annee">Avant 2025</p>
+        <div>
+          <div class="frise-dot"></div>
+          <div class="frise-contenu">
+            <p class="frise-titre">Enseignante en arts plastiques</p>
+            <p class="frise-detail">Une carrière dans l'enseignement, nourrie par la passion de l'art — mais avec le désir grandissant de retrouver le concret, le contact direct avec la matière.</p>
+          </div>
+        </div>
+      </div>
+      <div class="frise-item fade-in">
+        <p class="frise-annee">2025</p>
+        <div>
+          <div class="frise-dot"></div>
+          <div class="frise-contenu">
+            <p class="frise-titre">Formation peintre en décor — mention techniques anciennes</p>
+            <p class="frise-detail">École Française de Décor. Une reconversion choisie, exigeante, passionnante : faux-marbres, patines, trompe-l'œil, dorures, techniques à fresco…</p>
+          </div>
+        </div>
+      </div>
+      <div class="frise-item fade-in">
+        <p class="frise-annee">Aujourd'hui</p>
+        <div>
+          <div class="frise-dot" style="background: var(--or);"></div>
+          <div class="frise-contenu">
+            <p class="frise-titre">Adeline François — Peintre en décor</p>
+            <p class="frise-detail">Installée en Sarthe, je développe mon activité avec enthousiasme, un chantier après l'autre.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo-or.png" alt="Adeline François" style="filter: brightness(0) invert(1); opacity: 0.6; width:44px; height:44px; object-fit:contain;">
+        <p class="footer-brand-name">Adeline François</p>
+        <p class="footer-brand-tagline">Peintre en décor</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-titre">Navigation</p>
+        <ul>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="materiautheque.html">Matériauthèque</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-titre">Contact</p>
+        <p>
+          <a href="tel:+33617510901">06 17 51 09 01</a><br>
+          <a href="mailto:contact@adelinefrancois.com">contact@adelinefrancois.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Adeline François — Tous droits réservés</p>
+      <div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

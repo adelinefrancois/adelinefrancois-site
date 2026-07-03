@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réalisations — Adeline François, Peintre en décor</title>
+  <meta name="description" content="Portfolio de réalisations d'Adeline François : faux-marbres, trompe-l'œil, dorures, patines pour hôtels et demeures de prestige.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .page-hero {
+      margin-top: var(--nav-h);
+      padding: 5rem var(--side) 3rem;
+      background: var(--lin);
+      border-bottom: 0.5px solid var(--greige);
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .filtres {
+      display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+      padding: 2rem var(--side);
+      background: var(--ivoire);
+      border-bottom: 0.5px solid var(--greige);
+    }
+    .filtre-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+      font-weight: 400; color: var(--encre); background: none; border: none;
+      cursor: pointer; padding-bottom: 4px; position: relative;
+      transition: color 0.2s;
+    }
+    .filtre-btn::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 0.5px; background: var(--or); transition: width 0.3s;
+    }
+    .filtre-btn.actif, .filtre-btn:hover { color: var(--or-fonce); }
+    .filtre-btn.actif::after, .filtre-btn:hover::after { width: 100%; }
+
+    .galerie-section {
+      padding: 4rem var(--side) 6rem;
+      background: var(--ivoire);
+    }
+    .galerie-categorie { margin-bottom: 4rem; }
+    .cat-titre {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .cat-titre h2 { font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 400; color: var(--or); }
+    .cat-ligne { flex: 1; height: 0.5px; background: var(--greige); }
+
+    .galerie-masonry {
+      columns: 3;
+      column-gap: 3px;
+    }
+    .galerie-masonry .galerie-item {
+      break-inside: avoid;
+      margin-bottom: 3px;
+      aspect-ratio: unset;
+    }
+    .galerie-masonry .galerie-item img {
+      width: 100%;
+      height: auto !important;
+      object-fit: initial !important;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .galerie-masonry { columns: 2; }
+    }
+    @media (max-width: 500px) {
+      .galerie-masonry { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo-or.png" alt="Monogramme AF">
+      <div class="nav-logo-text">
+        <span>Adeline François</span>
+        <span>Peintre en décor</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="realisations.html" class="active">Réalisations</a></li>
+      <li><a href="materiautheque.html">Matériauthèque</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="nav-contact">Contact</a>
+    <button class="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="realisations.html">Réalisations</a>
+    <a href="materiautheque.html">Matériauthèque</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-hero">
+    <p class="label fade-in">Portfolio</p>
+    <div class="separateur"></div>
+    <h1 class="titre-section fade-in">Réalisations</h1>
+    <p class="accent fade-in" style="font-size: 20px; opacity: 0.65;">Chaque espace, une histoire à écrire</p>
+  </div>
+
+  <div class="filtres">
+    <button class="filtre-btn actif" data-filtre="tous">Tous</button>
+    <button class="filtre-btn" data-filtre="trompe-loeil">Trompe-l'œil</button>
+    <button class="filtre-btn" data-filtre="dorure">Dorures</button>
+    <button class="filtre-btn" data-filtre="fresque">Fresques &amp; décors</button>
+    <button class="filtre-btn" data-filtre="divers">Divers</button>
+  </div>
+
+  <section class="galerie-section">
+
+    <div class="galerie-categorie" data-cat="trompe-loeil">
+      <div class="cat-titre">
+        <h2>Trompe-l'œil</h2>
+        <div class="cat-ligne"></div>
+      </div>
+      <div class="galerie-masonry">
+        <div class="galerie-item fade-in">
+          <img src="images/real-5.jpeg" alt="Grisaille en technique ancienne">
+          <div class="galerie-legende"><span>Grisaille en technique ancienne (vernis Damar)</span></div>
+        </div>
+        <div class="galerie-item fade-in">
+          <img src="images/real-9.jpeg" alt="Faux ciel">
+          <div class="galerie-legende"><span>Faux ciel</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="galerie-categorie" data-cat="dorure">
+      <div class="cat-titre">
+        <h2>Dorures &amp; techniques précieuses</h2>
+        <div class="cat-ligne"></div>
+      </div>
+      <div class="galerie-masonry">
+        <div class="galerie-item fade-in">
+          <img src="images/real-2.jpeg" alt="Dorure à la détrempe">
+          <div class="galerie-legende"><span>Dorure à la détrempe et peinture à la colle de peau</span></div>
+        </div>
+        <div class="galerie-item fade-in">
+          <img src="images/real-3.jpeg" alt="Peinture sur feuille de cuivre">
+          <div class="galerie-legende"><span>Peinture sur feuille de cuivre</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="galerie-categorie" data-cat="fresque">
+      <div class="cat-titre">
+        <h2>Fresques &amp; décors</h2>
+        <div class="cat-ligne"></div>
+      </div>
+      <div class="galerie-masonry">
+        <div class="galerie-item fade-in">
+          <img src="images/real-1.jpeg" alt="Rosace, peinture acrylique">
+          <div class="galerie-legende"><span>Rosace, peinture acrylique</span></div>
+        </div>
+        <div class="galerie-item fade-in">
+          <img src="images/real-4.jpeg" alt="Décor théâtral à la gigouille">
+          <div class="galerie-legende"><span>Décor théâtral à la gigouille</span></div>
+        </div>
+        <div class="galerie-item fade-in">
+          <img src="images/real-10.jpeg" alt="Fresque art nouveau">
+          <div class="galerie-legende"><span>Fresque à fresco inspiration art nouveau</span></div>
+        </div>
+        <div class="galerie-item fade-in">
+          <img src="images/real-11.jpeg" alt="Nature morte">
+          <div class="galerie-legende"><span>Nature morte</span></div>
+        </div>
+        <div class="galerie-item fade-in">
+          <img src="images/real-12.jpeg" alt="Sgrafitto inspiration art nouveau">
+          <div class="galerie-legende"><span>Sgrafitto inspiration art nouveau</span></div>
+        </div>
+        <div class="galerie-item fade-in">
+          <img src="images/real-13.jpeg" alt="Panoramique">
+          <div class="galerie-legende"><span>Panoramique</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="galerie-categorie" data-cat="divers">
+      <div class="cat-titre">
+        <h2>Divers</h2>
+        <div class="cat-ligne"></div>
+      </div>
+      <div class="galerie-masonry">
+        <div class="galerie-item fade-in">
+          <img src="images/real-7.jpeg" alt="Faux carrelage effet azulejos">
+          <div class="galerie-legende"><span>Faux carrelage effet azulejos</span></div>
+        </div>
+        <div class="galerie-item fade-in">
+          <img src="images/real-8.jpeg" alt="Lettrage">
+          <div class="galerie-legende"><span>Lettrage</span></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section style="background: var(--lin); padding: 5rem var(--side); text-align: center; border-top: 0.5px solid var(--greige);">
+    <div class="fade-in" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+      <p class="label">Votre projet</p>
+      <div class="separateur"></div>
+      <p class="accent" style="font-size: clamp(18px, 2.5vw, 26px); opacity: 0.75; max-width: 440px; line-height: 1.6;">
+        Une idée, un espace à transformer ?
+      </p>
+      <a href="contact.html" class="btn-lien">Discutons de votre projet</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo-or.png" alt="Adeline François" style="filter: brightness(0) invert(1); opacity: 0.6; width:44px; height:44px; object-fit:contain;">
+        <p class="footer-brand-name">Adeline François</p>
+        <p class="footer-brand-tagline">Peintre en décor</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-titre">Navigation</p>
+        <ul>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="materiautheque.html">Matériauthèque</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-titre">Contact</p>
+        <p>
+          <a href="tel:+33617510901">06 17 51 09 01</a><br>
+          <a href="mailto:contact@adelinefrancois.com">contact@adelinefrancois.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Adeline François — Tous droits réservés</p>
+      <div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a></div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(43,38,32,0.92); cursor:zoom-out; align-items:center; justify-content:center;">
+    <button id="lightbox-close" style="position:absolute; top:1.5rem; right:2rem; background:none; border:none; color:#FBF7F0; font-size:28px; cursor:pointer; opacity:0.7; line-height:1;">&#x2715;</button>
+    <button id="lightbox-prev" style="position:absolute; left:1.5rem; background:none; border:none; color:#FBF7F0; font-size:32px; cursor:pointer; opacity:0.6; line-height:1;">&#x2039;</button>
+    <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; width:auto; height:auto; object-fit:contain; display:block;">
+    <p id="lightbox-legende" style="position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:#FBF7F0; opacity:0.6; white-space:nowrap;"></p>
+    <button id="lightbox-next" style="position:absolute; right:1.5rem; background:none; border:none; color:#FBF7F0; font-size:32px; cursor:pointer; opacity:0.6; line-height:1;">&#x203A;</button>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbLegende = document.getElementById('lightbox-legende');
+    let images = [];
+    let current = 0;
+
+    function buildImageList() {
+      images = Array.from(document.querySelectorAll('.galerie-masonry .galerie-item img'))
+        .filter(img => img.closest('.galerie-categorie').style.display !== 'none')
+        .map(img => ({
+          src: img.src,
+          alt: img.alt,
+          legende: img.closest('.galerie-item')?.querySelector('.galerie-legende span')?.textContent || ''
+        }));
+    }
+
+    function openLightbox(index) {
+      current = index;
+      lbImg.src = images[current].src;
+      lbImg.alt = images[current].alt;
+      lbLegende.textContent = images[current].legende;
+      lb.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lb.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function showPrev() { current = (current - 1 + images.length) % images.length; openLightbox(current); }
+    function showNext() { current = (current + 1) % images.length; openLightbox(current); }
+
+    buildImageList();
+
+    document.querySelectorAll('.galerie-masonry .galerie-item img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        buildImageList();
+        const idx = images.findIndex(im => im.src === img.src);
+        openLightbox(idx >= 0 ? idx : 0);
+      });
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+    document.getElementById('lightbox-next').addEventListener('click', e => { e.stopPropagation(); showNext(); });
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (lb.style.display === 'flex') {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+      }
+    });
+
+    document.querySelectorAll('.filtre-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('actif'));
+        btn.classList.add('actif');
+        const filtre = btn.dataset.filtre;
+        document.querySelectorAll('.galerie-categorie').forEach(cat => {
+          cat.style.display = (filtre === 'tous' || cat.dataset.cat === filtre) ? '' : 'none';
+        });
+        buildImageList();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Adeline François, Peintre en décor</title>
+  <meta name="description" content="Articles sur l'histoire de la peinture décorative, les techniques, les matières et les événements d'Adeline François.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .page-hero {
+      margin-top: var(--nav-h);
+      padding: 5rem var(--side) 3rem;
+      background: var(--lin);
+      border-bottom: 0.5px solid var(--greige);
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .blog-categories {
+      display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+      padding: 2rem var(--side);
+      background: var(--ivoire);
+      border-bottom: 0.5px solid var(--greige);
+    }
+    .cat-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+      font-weight: 400; color: var(--encre); background: none; border: none;
+      cursor: pointer; padding-bottom: 4px; position: relative; transition: color 0.2s;
+    }
+    .cat-btn::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 0.5px; background: var(--or); transition: width 0.3s;
+    }
+    .cat-btn.actif, .cat-btn:hover { color: var(--or-fonce); }
+    .cat-btn.actif::after, .cat-btn:hover::after { width: 100%; }
+
+    .blog-section { padding: 5rem var(--side) 6rem; background: var(--ivoire); }
+
+    .article-vedette {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3px; background: var(--greige); border: 0.5px solid var(--greige);
+      margin-bottom: 5rem;
+    }
+    .article-vedette-img {
+      aspect-ratio: 4/3; background: var(--lin); position: relative; overflow: hidden;
+    }
+    .article-vedette-body {
+      background: var(--ivoire); padding: 3rem; display: flex; flex-direction: column; gap: 1.2rem; justify-content: center;
+    }
+    .tag-cat {
+      font-size: 8px; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--or); font-weight: 400;
+    }
+    .article-titre-grand {
+      font-size: clamp(16px, 2vw, 22px); letter-spacing: 0.08em;
+      text-transform: uppercase; font-weight: 400; line-height: 1.5; color: var(--encre);
+    }
+    .article-extrait-grand {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 16px; line-height: 1.7; opacity: 0.65;
+    }
+
+    .articles-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: var(--greige); border: 0.5px solid var(--greige);
+    }
+    .articles-grid[data-hidden] { display: none; }
+
+    @media (max-width: 900px) {
+      .article-vedette { grid-template-columns: 1fr; }
+      .articles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo-or.png" alt="Monogramme AF">
+      <div class="nav-logo-text">
+        <span>Adeline François</span>
+        <span>Peintre en décor</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="realisations.html">Réalisations</a></li>
+      <li><a href="materiautheque.html">Matériauthèque</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="nav-contact">Contact</a>
+    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="realisations.html">Réalisations</a>
+    <a href="materiautheque.html">Matériauthèque</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-hero">
+    <p class="label fade-in">Réflexions &amp; actualités</p>
+    <div class="separateur"></div>
+    <h1 class="titre-section fade-in">Blog</h1>
+    <p class="accent fade-in" style="font-size: 20px; opacity: 0.65;">Histoire, techniques, matières &amp; événements</p>
+    <p class="fade-in" style="font-size: 12px; letter-spacing: 0.15em; color: var(--or); opacity: 0.8; margin-top: 0.5rem;">Articles en cours d'écriture — à paraître prochainement</p>
+  </div>
+
+  <div class="blog-categories">
+    <button class="cat-btn actif" data-cat="tous">Tous</button>
+    <button class="cat-btn" data-cat="histoire">Histoire de la peinture</button>
+    <button class="cat-btn" data-cat="techniques">Techniques</button>
+    <button class="cat-btn" data-cat="matieres">Matières</button>
+    <button class="cat-btn" data-cat="evenements">Événements</button>
+  </div>
+
+  <section class="blog-section" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.5rem;">
+    <div class="separateur"></div>
+    <p class="accent" style="font-size: clamp(18px, 2.5vw, 26px); opacity: 0.65; max-width: 500px; line-height: 1.6;">
+      Les articles sont en cours d'écriture.<br>Revenez bientôt.
+    </p>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo-or.png" alt="Adeline François" style="filter: brightness(0) invert(1); opacity: 0.6; width:44px; height:44px; object-fit:contain;">
+        <p class="footer-brand-name">Adeline François</p>
+        <p class="footer-brand-tagline">Peintre en décor</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-titre">Navigation</p>
+        <ul>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="materiautheque.html">Matériauthèque</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-titre">Contact</p>
+        <p>
+          <a href="tel:+33617510901">06 17 51 09 01</a><br>
+          <a href="mailto:contact@adelinefrancois.com">contact@adelinefrancois.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Adeline François — Tous droits réservés</p>
+      <div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('actif'));
+        btn.classList.add('actif');
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.blog-card, .article-vedette').forEach(el => {
+          const match = cat === 'tous' || el.dataset.cat === cat;
+          el.style.display = match ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

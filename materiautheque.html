@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matériauthèque — Adeline François, Peintre en décor</title>
+  <meta name="description" content="Explorez la matériauthèque d'Adeline François : échantillons de faux-marbres, stucs, patines, dorures et bois peints.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .page-hero {
+      margin-top: var(--nav-h);
+      padding: 5rem var(--side) 3rem;
+      background: var(--lin);
+      border-bottom: 0.5px solid var(--greige);
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .mat-intro {
+      padding: 4rem var(--side);
+      background: var(--ivoire);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      border-bottom: 0.5px solid var(--greige);
+    }
+    .mat-intro p {
+      font-size: 14px; line-height: 1.9; opacity: 0.75;
+    }
+    .mat-intro-titre {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .mat-section {
+      padding: 5rem var(--side);
+    }
+    .mat-section:nth-child(even) { background: var(--lin); }
+    .mat-section:nth-child(odd) { background: var(--ivoire); }
+
+    .mat-section-header {
+      display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;
+    }
+    .mat-section-header h2 { font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 400; color: var(--or); }
+    .mat-section-header .accent { font-size: 22px; }
+    .mat-section-header-inner { display: flex; flex-direction: column; gap: 4px; }
+    .mat-ligne { flex: 1; height: 0.5px; background: var(--greige); }
+
+    .mat-echantillons {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2px;
+      background: var(--greige);
+      border: 0.5px solid var(--greige);
+    }
+    .mat-echantillon {
+      background: var(--ivoire);
+      display: flex; flex-direction: column;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .mat-echantillon:hover { opacity: 0.85; }
+    .mat-ech-img {
+      aspect-ratio: 1;
+      overflow: hidden;
+      position: relative;
+    }
+    .mat-ech-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .mat-echantillon:hover .mat-ech-img img { transform: scale(1.04); }
+    .mat-ech-info {
+      padding: 1rem;
+      border-top: 0.5px solid var(--greige);
+    }
+    .mat-ech-nom {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 400; color: var(--encre); margin-bottom: 3px;
+    }
+    .mat-ech-desc {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 12px; color: var(--encre); opacity: 0.6;
+    }
+    @media (max-width: 900px) {
+      .mat-intro { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo-or.png" alt="Monogramme AF">
+      <div class="nav-logo-text">
+        <span>Adeline François</span>
+        <span>Peintre en décor</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="realisations.html">Réalisations</a></li>
+      <li><a href="materiautheque.html" class="active">Matériauthèque</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="nav-contact">Contact</a>
+    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="realisations.html">Réalisations</a>
+    <a href="materiautheque.html">Matériauthèque</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-hero">
+    <p class="label fade-in">Matières &amp; techniques</p>
+    <div class="separateur"></div>
+    <h1 class="titre-section fade-in">Matériauthèque</h1>
+    <p class="accent fade-in" style="font-size: 20px; opacity: 0.65;">Un catalogue vivant de possibilités</p>
+  </div>
+
+  <div class="mat-intro">
+    <div class="mat-intro-titre fade-in">
+      <p class="label">Présentation</p>
+      <div class="or-line"></div>
+      <h2 class="titre-section">Choisir sa matière</h2>
+      <p class="accent" style="font-size: 20px; opacity: 0.7;">L'échantillon, première étape de chaque projet</p>
+    </div>
+    <div class="fade-in">
+      <p>La matériauthèque est le cœur de ma démarche : avant tout chantier, nous sélectionnons ensemble les matières, les teintes et les finitions qui correspondront le mieux à votre espace et à votre sensibilité.</p>
+      <br>
+      <p>Chaque échantillon présenté ici peut être réalisé sur n'importe quel support — mur, plafond, meuble, boiserie — et adapté en intensité, en ton et en brillance selon vos souhaits.</p>
+      <br>
+      <p>Des échantillons physiques peuvent être préparés sur demande pour vous permettre de voir la matière dans la lumière de votre espace.</p>
+    </div>
+  </div>
+
+  <!-- Faux-marbres -->
+  <section class="mat-section">
+    <div class="mat-section-header fade-in">
+      <div class="mat-section-header-inner">
+        <h2>Faux-marbres</h2>
+        <p class="accent" style="font-size: 18px; opacity: 0.7;">L'art de tromper la pierre</p>
+      </div>
+      <div class="mat-ligne"></div>
+    </div>
+    <div class="mat-echantillons">
+      <div class="mat-echantillon fade-in">
+        <div class="mat-ech-img">
+          <img src="images/mat-1.jpeg" alt="Brèche grise">
+        </div>
+        <div class="mat-ech-info">
+          <p class="mat-ech-nom">Brèche grise</p>
+          <p class="mat-ech-desc">Fond blanc, veinures grises intenses</p>
+        </div>
+      </div>
+      <div class="mat-echantillon fade-in">
+        <div class="mat-ech-img">
+          <img src="images/mat-2.jpeg" alt="Rouge royal et blanc veiné">
+        </div>
+        <div class="mat-ech-info">
+          <p class="mat-ech-nom">Rouge royal et blanc veiné</p>
+          <p class="mat-ech-desc">Deux marbres en trompe-l'œil architectural</p>
+        </div>
+      </div>
+      <div class="mat-echantillon fade-in">
+        <div class="mat-ech-img">
+          <img src="images/mat-5.jpeg" alt="Vert de mer et portor">
+        </div>
+        <div class="mat-ech-info">
+          <p class="mat-ech-nom">Vert de mer et portor</p>
+          <p class="mat-ech-desc">Vert profond et noir veiné or</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faux-bois -->
+  <section class="mat-section">
+    <div class="mat-section-header fade-in">
+      <div class="mat-section-header-inner">
+        <h2>Faux-bois</h2>
+        <p class="accent" style="font-size: 18px; opacity: 0.7;">La noblesse du bois peint</p>
+      </div>
+      <div class="mat-ligne"></div>
+    </div>
+    <div class="mat-echantillons">
+      <div class="mat-echantillon fade-in">
+        <div class="mat-ech-img">
+          <img src="images/mat-8.jpeg" alt="Noyer">
+        </div>
+        <div class="mat-ech-info">
+          <p class="mat-ech-nom">Noyer</p>
+          <p class="mat-ech-desc">Veines fines, teintes chocolat</p>
+        </div>
+      </div>
+      <div class="mat-echantillon fade-in">
+        <div class="mat-ech-img">
+          <img src="images/mat-9.jpeg" alt="Chêne">
+        </div>
+        <div class="mat-ech-info">
+          <p class="mat-ech-nom">Chêne</p>
+          <p class="mat-ech-desc">Deux techniques côte à côte</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patines -->
+  <section class="mat-section">
+    <div class="mat-section-header fade-in">
+      <div class="mat-section-header-inner">
+        <h2>Patines</h2>
+        <p class="accent" style="font-size: 18px; opacity: 0.7;">Le temps apprivoisé</p>
+      </div>
+      <div class="mat-ligne"></div>
+    </div>
+    <div class="mat-echantillons">
+      <div class="mat-echantillon fade-in">
+        <div class="mat-ech-img">
+          <img src="images/mat-10.jpeg" alt="Patine jaune à la gouache">
+        </div>
+        <div class="mat-ech-info">
+          <p class="mat-ech-nom">Patine jaune à la gouache</p>
+          <p class="mat-ech-desc">Tons dorés, effet de profondeur mat</p>
+        </div>
+      </div>
+      <div class="mat-echantillon fade-in">
+        <div class="mat-ech-img">
+          <img src="images/mat-11.jpeg" alt="Patine à l'huile">
+        </div>
+        <div class="mat-ech-info">
+          <p class="mat-ech-nom">Patine à l'huile</p>
+          <p class="mat-ech-desc">Gris-bleu dégradé, douceur contemporaine</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--ivoire); padding: 5rem var(--side); text-align: center; border-top: 0.5px solid var(--greige);">
+    <div class="fade-in" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+      <p class="label">Votre projet</p>
+      <div class="separateur"></div>
+      <p class="accent" style="font-size: clamp(18px, 2.5vw, 26px); opacity: 0.75; max-width: 500px; line-height: 1.6;">
+        Une matière vous inspire ? Parlons de votre espace.
+      </p>
+      <a href="contact.html" class="btn-lien">Demander un rendez-vous</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo-or.png" alt="Adeline François" style="filter: brightness(0) invert(1); opacity: 0.6; width:44px; height:44px; object-fit:contain;">
+        <p class="footer-brand-name">Adeline François</p>
+        <p class="footer-brand-tagline">Peintre en décor</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-titre">Navigation</p>
+        <ul>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="materiautheque.html">Matériauthèque</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-titre">Contact</p>
+        <p>
+          <a href="tel:+33617510901">06 17 51 09 01</a><br>
+          <a href="mailto:contact@adelinefrancois.com">contact@adelinefrancois.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Adeline François — Tous droits réservés</p>
+      <div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a></div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(43,38,32,0.92); cursor:zoom-out; align-items:center; justify-content:center;">
+    <button id="lightbox-close" style="position:absolute; top:1.5rem; right:2rem; background:none; border:none; color:#FBF7F0; font-size:28px; cursor:pointer; opacity:0.7; line-height:1;">&#x2715;</button>
+    <button id="lightbox-prev" style="position:absolute; left:1.5rem; background:none; border:none; color:#FBF7F0; font-size:32px; cursor:pointer; opacity:0.6; line-height:1;">&#x2039;</button>
+    <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; width:auto; height:auto; object-fit:contain; display:block;">
+    <p id="lightbox-legende" style="position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:#FBF7F0; opacity:0.6; white-space:nowrap;"></p>
+    <button id="lightbox-next" style="position:absolute; right:1.5rem; background:none; border:none; color:#FBF7F0; font-size:32px; cursor:pointer; opacity:0.6; line-height:1;">&#x203A;</button>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbLegende = document.getElementById('lightbox-legende');
+    const images = Array.from(document.querySelectorAll('.mat-echantillon img')).map(img => ({
+      src: img.src,
+      alt: img.alt,
+      legende: img.closest('.mat-echantillon')?.querySelector('.mat-ech-nom')?.textContent || ''
+    }));
+    let current = 0;
+
+    function openLightbox(index) {
+      current = index;
+      lbImg.src = images[current].src;
+      lbImg.alt = images[current].alt;
+      lbLegende.textContent = images[current].legende;
+      lb.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() { lb.style.display = 'none'; document.body.style.overflow = ''; }
+    function showPrev() { current = (current - 1 + images.length) % images.length; openLightbox(current); }
+    function showNext() { current = (current + 1) % images.length; openLightbox(current); }
+
+    document.querySelectorAll('.mat-echantillon img').forEach((img, i) => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => openLightbox(i));
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+    document.getElementById('lightbox-next').addEventListener('click', e => { e.stopPropagation(); showNext(); });
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (lb.style.display === 'flex') {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+      }
+    });
+  </script>
+</body>
+</html>
