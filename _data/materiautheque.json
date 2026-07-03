@@ -1,0 +1,11 @@
+{
+  "items": [
+    { "image": "/images/mat-1.jpeg", "nom": "Brèche grise", "description": "Fond blanc, veinures grises intenses", "categorie": "faux-marbres" },
+    { "image": "/images/mat-2.jpeg", "nom": "Rouge royal et blanc veiné", "description": "Deux marbres en trompe-l'œil architectural", "categorie": "faux-marbres" },
+    { "image": "/images/mat-5.jpeg", "nom": "Vert de mer et portor", "description": "Vert profond et noir veiné or", "categorie": "faux-marbres" },
+    { "image": "/images/mat-8.jpeg", "nom": "Noyer", "description": "Veines fines, teintes chocolat", "categorie": "faux-bois" },
+    { "image": "/images/mat-9.jpeg", "nom": "Chêne", "description": "Deux techniques côte à côte", "categorie": "faux-bois" },
+    { "image": "/images/mat-10.jpeg", "nom": "Patine jaune à la gouache", "description": "Tons dorés, effet de profondeur mat", "categorie": "patines" },
+    { "image": "/images/mat-11.jpeg", "nom": "Patine à l'huile", "description": "Gris-bleu dégradé, douceur contemporaine", "categorie": "patines" }
+  ]
+}
