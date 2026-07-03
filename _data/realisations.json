@@ -1,0 +1,16 @@
+{
+  "items": [
+    { "image": "/images/real-5.jpeg", "legende": "Grisaille en technique ancienne (vernis Damar)", "categorie": "trompe-loeil" },
+    { "image": "/images/real-9.jpeg", "legende": "Faux ciel", "categorie": "trompe-loeil" },
+    { "image": "/images/real-2.jpeg", "legende": "Dorure à la détrempe et peinture à la colle de peau", "categorie": "dorure" },
+    { "image": "/images/real-3.jpeg", "legende": "Peinture sur feuille de cuivre", "categorie": "dorure" },
+    { "image": "/images/real-1.jpeg", "legende": "Rosace, peinture acrylique", "categorie": "fresque" },
+    { "image": "/images/real-4.jpeg", "legende": "Décor théâtral à la gigouille", "categorie": "fresque" },
+    { "image": "/images/real-10.jpeg", "legende": "Fresque à fresco inspiration art nouveau", "categorie": "fresque" },
+    { "image": "/images/real-11.jpeg", "legende": "Nature morte", "categorie": "fresque" },
+    { "image": "/images/real-12.jpeg", "legende": "Sgrafitto inspiration art nouveau", "categorie": "fresque" },
+    { "image": "/images/real-13.jpeg", "legende": "Panoramique", "categorie": "fresque" },
+    { "image": "/images/real-7.jpeg", "legende": "Faux carrelage effet azulejos", "categorie": "divers" },
+    { "image": "/images/real-8.jpeg", "legende": "Lettrage", "categorie": "divers" }
+  ]
+}
