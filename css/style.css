@@ -161,16 +161,16 @@ ul { list-style: none; }
 
 /* ── Hero ───────────────────────────────────────────────── */
 .hero {
-  margin-top: var(--nav-h);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: calc(100vh - var(--nav-h));
+  min-height: 100vh;
 }
 .hero-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 5rem var(--side);
+  padding-top: calc(var(--nav-h) + 3rem);
   gap: 1.5rem;
 }
 .hero-eyebrow {
