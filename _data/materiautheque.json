@@ -53,6 +53,12 @@
       "nom": "Bois dans les tons ocres ",
       "description": "Bois \"fantaisiste\" jaune",
       "categorie": "faux-bois"
+    },
+    {
+      "image": "/images/patine-verte.jpeg",
+      "nom": "Patine effet de matière - vert",
+      "categorie": "patines",
+      "description": "Patine verte "
     }
   ]
 }
