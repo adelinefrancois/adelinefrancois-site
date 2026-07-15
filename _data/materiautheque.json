@@ -47,6 +47,12 @@
       "nom": "Blanc veiné",
       "description": "Blanc veiné - acrylique",
       "categorie": "faux-marbres"
+    },
+    {
+      "image": "/images/bois-.jpeg",
+      "nom": "Bois dans les tons ocres ",
+      "description": "Bois \"fantaisiste\" jaune",
+      "categorie": "faux-bois"
     }
   ]
 }
