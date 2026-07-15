@@ -59,6 +59,12 @@
       "nom": "Patine effet de matière - vert",
       "categorie": "patines",
       "description": "Patine verte "
+    },
+    {
+      "nom": "Patine dégradée",
+      "description": "Dégradé vert foncé ",
+      "categorie": "patines",
+      "image": "/images/degradé-vert.jpeg"
     }
   ]
 }
