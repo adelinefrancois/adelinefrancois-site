@@ -65,6 +65,12 @@
       "description": "Dégradé vert foncé ",
       "categorie": "patines",
       "image": "/images/degradé-vert.jpeg"
+    },
+    {
+      "image": "/images/cadéine-tob.jpeg",
+      "nom": "Caséine",
+      "description": "Peinture à la chaux",
+      "categorie": "patines"
     }
   ]
 }
