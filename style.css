@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+/* ── Anti-FOUC ──────────────────────────────────────────── */
+html { visibility: hidden; }
+html.ready { visibility: visible; }
 
 /* ── Variables ─────────────────────────────────────────── */
 :root {
