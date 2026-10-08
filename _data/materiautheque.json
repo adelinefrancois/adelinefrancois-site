@@ -6,6 +6,8 @@
     { "image": "/images/mat-8.jpeg", "nom": "Noyer", "description": "Veines fines, teintes chocolat", "categorie": "faux-bois" },
     { "image": "/images/mat-9.jpeg", "nom": "Chêne", "description": "Deux techniques côte à côte", "categorie": "faux-bois" },
     { "image": "/images/mat-10.jpeg", "nom": "Patine jaune à la gouache", "description": "Tons dorés, effet de profondeur mat", "categorie": "patines" },
-    { "image": "/images/mat-11.jpeg", "nom": "Patine à l'huile", "description": "Gris-bleu dégradé, douceur contemporaine", "categorie": "patines" }
+    { "image": "/images/mat-11.jpeg", "nom": "Patine à l'huile", "description": "Gris-bleu dégradé, douceur contemporaine", "categorie": "patines" },
+    { "image": "/images/real-12.jpeg", "nom": "Sgraffito", "description": "Enduit gravé, inspiration art nouveau", "categorie": "enduits" },
+    { "image": "/images/accueil-sgraffito-soleil.jpg", "nom": "Sgraffito, soleil et montagnes", "description": "Enduit gravé et doré", "categorie": "enduits" }
   ]
 }

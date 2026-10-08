@@ -37,6 +37,31 @@ collections:
               - { label: "Description", name: "description", widget: "string", required: false }
               - { label: "Catégorie", name: "categorie", widget: "select", options: ["trompe-loeil", "dorure", "fresque", "divers"] }
 
+  - name: "chantiers"
+    label: "Chantiers (avant / après)"
+    files:
+      - name: "liste"
+        label: "Liste des chantiers"
+        file: "_data/chantiers.json"
+        fields:
+          - label: "Chantiers"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string" }
+              - { label: "Lieu (ville ou région)", name: "lieu", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Photo avant", name: "avant", widget: "image" }
+              - { label: "Photo après", name: "apres", widget: "image" }
+              - label: "Gros plans et détails"
+                name: "details"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Légende", name: "legende", widget: "string" }
+                  - { label: "Afficher en grand, sur toute la largeur (idéal pour une photo en format paysage)", name: "pleine_largeur", widget: "boolean", default: false, required: false }
+
   - name: "materiautheque"
     label: "Matériauthèque"
     files:
@@ -51,7 +76,34 @@ collections:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Nom", name: "nom", widget: "string" }
               - { label: "Description", name: "description", widget: "string" }
-              - { label: "Catégorie", name: "categorie", widget: "select", options: ["faux-marbres", "faux-bois", "patines"] }
+              - { label: "Catégorie", name: "categorie", widget: "select", options: ["faux-marbres", "faux-bois", "patines", "enduits"] }
+
+  - name: "accueil"
+    label: "Page d'accueil"
+    files:
+      - name: "images"
+        label: "Images de la page d'accueil"
+        file: "_data/accueil.json"
+        fields:
+          - { label: "Photo principale (hero)", name: "hero_image", widget: "image" }
+          - { label: "Photo \"À propos\"", name: "apropos_image", widget: "image" }
+          - label: "Réalisations mises en avant (3 images)"
+            name: "realisations_apercu"
+            widget: "list"
+            min: 3
+            max: 3
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Légende", name: "legende", widget: "string" }
+          - label: "Matériauthèque mise en avant (3 images)"
+            name: "materiautheque_apercu"
+            widget: "list"
+            min: 3
+            max: 3
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
 
   - name: "parametres"
     label: "Paramètres du site"

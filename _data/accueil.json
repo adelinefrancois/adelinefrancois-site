@@ -1,0 +1,14 @@
+{
+  "hero_image": "/images/portrait-adeline-paysage.jpg",
+  "apropos_image": "/images/heroessai.png",
+  "realisations_apercu": [
+    { "image": "/images/accueil-cuivre.jpg", "legende": "Peinture sur feuille de cuivre" },
+    { "image": "/images/accueil-sgraffito-soleil.jpg", "legende": "Sgraffito, soleil et montagnes" },
+    { "image": "/images/accueil-rosace.jpg", "legende": "Rosace, peinture acrylique" }
+  ],
+  "materiautheque_apercu": [
+    { "image": "/images/mat-9.jpeg", "nom": "Chêne", "description": "Faux-bois, deux techniques" },
+    { "image": "/images/accueil-patine-huile.jpg", "nom": "Patine à l'huile", "description": "Vert-bleu nuancé" },
+    { "image": "/images/mat-2.jpeg", "nom": "Rouge royal & blanc veiné", "description": "Faux-marbres architecturaux" }
+  ]
+}

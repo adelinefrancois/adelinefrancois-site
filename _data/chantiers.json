@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "titre": "Paysage pour un cabinet de sophrologie",
+      "lieu": "Torcé-en-Vallée, Sarthe",
+      "description": "La sophrologue souhaitait un lieu qui appelle à l'apaisement. Le décor est un paysage doux et lumineux : des arbres, des collines au loin, un vol d'hirondelles. Les autres murs devaient rester tels quels, j'ai donc adapté les couleurs de la fresque au reste de la pièce et à celle des meubles. Le mur était tapissé d'un papier en relief en bon état : pour garder l'harmonie de l'ensemble, j'ai peint directement par-dessus, et sa texture se devine sous la peinture.",
+      "avant": "/images/chantier2-avant.jpg",
+      "apres": "/images/chantier2-apres.jpg",
+      "details": [
+        { "image": "/images/chantier2-detail-paysage.webp", "legende": "Détail du paysage : arbres, collines et hirondelles", "pleine_largeur": true }
+      ]
+    },
+    {
+      "titre": "Poutre en faux bois & colonne",
+      "lieu": "Près du Mans, Sarthe",
+      "description": "Dans ce séjour ouvert, la poutre en placo était peinte en bleu-gris foncé et la colonne d'un gris béton. Les habitants du lieu souhaitaient quelque chose de naturel et de clair. J'ai peint la poutre en faux bois, un bois « inventé » qui rappelle le pin, puis éclairci la colonne avec les mêmes teintes de base pour harmoniser l'ensemble, en y ajoutant un léger effet de pierre qui lui donne de la texture et un aspect plus naturel.",
+      "avant": "/images/chantier1-avant.jpg",
+      "apres": "/images/chantier1-apres.jpg",
+      "details": [
+        { "image": "/images/chantier1-detail-colonne.jpg", "legende": "Colonne, léger effet de pierre" }
+      ]
+    }
+  ]
+}
