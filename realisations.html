@@ -1,4 +1,4 @@
-?<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -67,11 +67,48 @@
       object-fit: initial !important;
       display: block;
     }
+    .chantiers { background: var(--ivoire); }
+    .chantier {
+      padding: 4rem var(--side);
+      border-bottom: 0.5px solid var(--greige);
+    }
+    .chantier-entete {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 1rem; margin-bottom: 2.5rem;
+    }
+    .chantier-lieu { font-size: 20px; opacity: 0.7; }
+    .chantier-desc {
+      max-width: 680px; font-size: 14px; line-height: 1.9; opacity: 0.75;
+    }
+    .chantier-pair, .chantier-details {
+      display: grid; gap: 3px; max-width: 900px; margin: 0 auto;
+    }
+    .chantier-pair { grid-template-columns: 1fr 1fr; }
+    .chantier-details {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      margin-top: 3px;
+    }
+    .chantier-fig {
+      position: relative; margin: 0; overflow: hidden;
+      aspect-ratio: 3/4; background: var(--lin);
+    }
+    .chantier-details .chantier-fig { aspect-ratio: 1; }
+    .chantier-details .chantier-fig--large { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
+    .chantier-fig img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .chantier-fig figcaption {
+      position: absolute; left: 1rem; bottom: 1rem;
+      font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--ivoire); background: rgba(43,38,32,0.55);
+      padding: 5px 12px; pointer-events: none;
+    }
     @media (max-width: 900px) {
       .galerie-masonry { columns: 2; }
     }
     @media (max-width: 500px) {
       .galerie-masonry { columns: 1; }
+      .chantier-pair { grid-template-columns: 1fr; }
     }
   </style>
 <script>document.documentElement.className="ready";</script>
@@ -112,6 +149,8 @@
     <p class="accent fade-in" style="font-size: 20px; opacity: 0.65;">Chaque espace, une histoire à écrire</p>
   </div>
 
+  <section class="chantiers" id="chantiers-container"></section>
+
   <div class="filtres">
     <button class="filtre-btn actif" data-filtre="tous">Tous</button>
     <button class="filtre-btn" data-filtre="trompe-loeil">Trompe-l'œil</button>
@@ -141,6 +180,7 @@
         <p class="footer-brand-name">Adeline François</p>
         <p class="footer-brand-tagline">Peintre en décor</p>
         <p style="font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.1em; color:var(--greige); opacity:0.85; margin-top:3px;">Atelier en Sarthe — interventions partout en France</p>
+        <img src="images/logo-artisan-art.png" alt="Titre Artisan d'Art" style="width:44px; height:auto; object-fit:contain; display:block; margin-top:10px;">
       </div>
       <div class="footer-col">
         <p class="footer-col-titre">Navigation</p>
@@ -191,12 +231,15 @@
     let current = 0;
 
     function buildImageList() {
-      images = Array.from(document.querySelectorAll('.galerie-masonry .galerie-item img'))
-        .filter(img => img.closest('.galerie-categorie').style.display !== 'none')
+      images = Array.from(document.querySelectorAll('.chantier-fig img, .galerie-masonry .galerie-item img'))
+        .filter(img => {
+          const cat = img.closest('.galerie-categorie');
+          return !cat || cat.style.display !== 'none';
+        })
         .map(img => ({
           src: img.src,
           alt: img.alt,
-          legende: img.closest('.galerie-item')?.querySelector('.galerie-legende span')?.textContent || ''
+          legende: img.dataset.legende || img.closest('.galerie-item')?.querySelector('.galerie-legende span')?.textContent || ''
         }));
     }
 
@@ -249,6 +292,59 @@
         buildImageList();
       });
     });
+
+    function el(tag, cls, text) {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text) e.textContent = text;
+      return e;
+    }
+
+    function chantierFig(src, alt, legende, caption, large) {
+      const fig = el('figure', large ? 'chantier-fig chantier-fig--large' : 'chantier-fig');
+      const img = el('img');
+      img.src = src;
+      img.alt = alt;
+      img.loading = 'lazy';
+      img.dataset.legende = legende;
+      fig.appendChild(img);
+      if (caption) fig.appendChild(el('figcaption', '', caption));
+      attachLightbox(img);
+      return fig;
+    }
+
+    fetch('/_data/chantiers.json')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('chantiers-container');
+        data.items.forEach(c => {
+          const article = el('article', 'chantier');
+
+          const entete = el('div', 'chantier-entete');
+          entete.appendChild(el('p', 'label', 'Chantier'));
+          entete.appendChild(el('div', 'separateur'));
+          entete.appendChild(el('h2', 'titre-section', c.titre));
+          if (c.lieu) entete.appendChild(el('p', 'accent chantier-lieu', c.lieu));
+          if (c.description) entete.appendChild(el('p', 'chantier-desc', c.description));
+          article.appendChild(entete);
+
+          const suffixe = ' — Adeline François, peintre en décor';
+          const pair = el('div', 'chantier-pair');
+          pair.appendChild(chantierFig(c.avant, c.titre + ', avant' + suffixe, c.titre + ' — avant', 'Avant'));
+          pair.appendChild(chantierFig(c.apres, c.titre + ', après' + suffixe, c.titre + ' — après', 'Après'));
+          article.appendChild(pair);
+
+          if (c.details && c.details.length) {
+            const details = el('div', 'chantier-details');
+            c.details.forEach(d => {
+              details.appendChild(chantierFig(d.image, d.legende + suffixe, d.legende, '', d.pleine_largeur));
+            });
+            article.appendChild(details);
+          }
+
+          container.appendChild(article);
+        });
+      });
 
     fetch('/_data/realisations.json')
       .then(r => r.json())

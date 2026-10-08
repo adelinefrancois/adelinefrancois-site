@@ -1,4 +1,4 @@
-?<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -73,7 +73,7 @@
     </div>
     <div class="hero-right">
       <!-- Remplacer src par le nom de votre photo, ex: images/hero.jpg -->
-      <img src="images/real-3.jpeg" alt="Peinture sur feuille de cuivre — Adeline François, peintre en décor" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <img src="images/portrait-adeline-paysage.jpg" alt="Adeline François devant un paysage peint, peintre en décor au Mans" style="width:100%;height:100%;object-fit:cover;object-position:50% 45%;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="hero-image-placeholder" style="display:none;">
         <img class="logo-watermark" src="images/logo-or.png" alt="">
       </div>
@@ -99,6 +99,11 @@
         <h3 class="savoir-titre">Trompe-l'œil &amp; décors</h3>
         <p class="savoir-texte">Fresques murales, panoramiques, perspectives architecturales et décors sur-mesure qui transforment un espace en une expérience sensorielle unique.</p>
       </div>
+      <div class="savoir-card fade-in">
+        <div class="savoir-num">03</div>
+        <h3 class="savoir-titre">Enduits décoratifs</h3>
+        <p class="savoir-texte">Stucs, enduits à la chaux et effets de matière minérale, pour des finitions texturées et authentiques, en intérieur comme en extérieur.</p>
+      </div>
     </div>
   </section>
 
@@ -111,16 +116,16 @@
     </div>
     <div class="galerie-home">
       <div class="galerie-item fade-in">
-        <img src="images/real-1.jpeg" alt="Rosace peinte à l'acrylique — Adeline François, peintre en décor">
+        <img src="images/accueil-cuivre.jpg" alt="Peinture sur feuille de cuivre — Adeline François, peintre en décor">
+        <div class="galerie-legende"><span>Peinture sur feuille de cuivre</span></div>
+      </div>
+      <div class="galerie-item fade-in">
+        <img src="images/accueil-sgraffito-soleil.jpg" alt="Sgraffito, soleil et montagnes — Adeline François, peintre en décor">
+        <div class="galerie-legende"><span>Sgraffito, soleil et montagnes</span></div>
+      </div>
+      <div class="galerie-item fade-in">
+        <img src="images/accueil-rosace.jpg" alt="Rosace, peinture acrylique — Adeline François, peintre en décor">
         <div class="galerie-legende"><span>Rosace, peinture acrylique</span></div>
-      </div>
-      <div class="galerie-item fade-in">
-        <img src="images/real-9.jpeg" alt="Faux ciel peint, trompe-l'œil — Adeline François, peintre en décor">
-        <div class="galerie-legende"><span>Faux ciel</span></div>
-      </div>
-      <div class="galerie-item fade-in">
-        <img src="images/real-12.jpeg" alt="Sgrafitte inspiration art nouveau — Adeline François, peintre en décor">
-        <div class="galerie-legende"><span>Sgrafitto inspiration art nouveau</span></div>
       </div>
     </div>
     <div class="voir-plus fade-in">
@@ -145,10 +150,10 @@
         </div>
       </div>
       <div class="mat-card fade-in">
-        <img src="images/mat-11.jpeg" alt="Patine à l'huile gris-bleu — Adeline François, peintre en décor" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <img src="images/accueil-patine-huile.jpg" alt="Patine à l'huile vert-bleu — Adeline François, peintre en décor" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
         <div class="mat-card-info">
           <p class="mat-card-nom">Patine à l'huile</p>
-          <p class="mat-card-desc">Gris-bleu dégradé</p>
+          <p class="mat-card-desc">Vert-bleu nuancé</p>
         </div>
       </div>
       <div class="mat-card fade-in">
@@ -215,6 +220,7 @@
         <p class="footer-brand-name">Adeline François</p>
         <p class="footer-brand-tagline">Peintre en décor</p>
         <p style="font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.1em; color:var(--greige); opacity:0.85; margin-top:3px;">Atelier en Sarthe — interventions partout en France</p>
+        <img src="images/logo-artisan-art.png" alt="Titre Artisan d'Art" style="width:44px; height:auto; object-fit:contain; display:block; margin-top:10px;">
       </div>
       <div class="footer-col">
         <p class="footer-col-titre">Navigation</p>
@@ -254,18 +260,59 @@
 
   <script src="js/main.js"></script>
   <script>
+    fetch('/_data/accueil.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!data) return;
+        if (data.hero_image) {
+          const heroImg = document.querySelector('.hero-right img');
+          if (heroImg) heroImg.src = data.hero_image;
+        }
+        if (data.apropos_image) {
+          const aproposImg = document.querySelector('.apropos-photo img');
+          if (aproposImg) aproposImg.src = data.apropos_image;
+        }
+        if (Array.isArray(data.realisations_apercu)) {
+          document.querySelectorAll('.galerie-home .galerie-item').forEach((item, i) => {
+            const d = data.realisations_apercu[i];
+            if (!d) return;
+            const img = item.querySelector('img');
+            if (img && d.image) { img.src = d.image; if (d.legende) img.alt = d.legende + ' — Adeline François, peintre en décor'; }
+            const span = item.querySelector('.galerie-legende span');
+            if (span && d.legende) span.textContent = d.legende;
+          });
+        }
+        if (Array.isArray(data.materiautheque_apercu)) {
+          document.querySelectorAll('.mat-grid .mat-card').forEach((card, i) => {
+            const d = data.materiautheque_apercu[i];
+            if (!d) return;
+            const img = card.querySelector('img');
+            if (img && d.image) { img.src = d.image; if (d.nom) img.alt = d.nom + ' — Adeline François, peintre en décor'; }
+            const nom = card.querySelector('.mat-card-nom');
+            if (nom && d.nom) nom.textContent = d.nom;
+            const desc = card.querySelector('.mat-card-desc');
+            if (desc && d.description) desc.textContent = d.description;
+          });
+        }
+      })
+      .catch(() => {});
+
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     const lbLegende = document.getElementById('lightbox-legende');
-    const images = Array.from(document.querySelectorAll('.galerie-home .galerie-item img')).map(img => ({
-      src: img.src,
-      alt: img.alt,
-      legende: img.closest('.galerie-item')?.querySelector('.galerie-legende span')?.textContent || ''
-    }));
+    let images = [];
+    function buildImages() {
+      images = Array.from(document.querySelectorAll('.galerie-home .galerie-item img')).map(img => ({
+        src: img.src,
+        alt: img.alt,
+        legende: img.closest('.galerie-item')?.querySelector('.galerie-legende span')?.textContent || ''
+      }));
+    }
     let current = 0;
 
     function openLightbox(index) {
       current = index;
+      buildImages();
       lbImg.src = images[current].src;
       lbImg.alt = images[current].alt;
       lbLegende.textContent = images[current].legende;

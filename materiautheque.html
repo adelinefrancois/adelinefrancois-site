@@ -1,4 +1,4 @@
-?<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -52,12 +52,11 @@
     .mat-echantillons {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 2px;
-      background: var(--greige);
-      border: 0.5px solid var(--greige);
+      gap: 1px;
     }
     .mat-echantillon {
       background: var(--ivoire);
+      outline: 0.5px solid var(--greige);
       display: flex; flex-direction: column;
       cursor: pointer;
       transition: opacity 0.2s;
@@ -160,6 +159,7 @@
         <p class="footer-brand-name">Adeline François</p>
         <p class="footer-brand-tagline">Peintre en décor</p>
         <p style="font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.1em; color:var(--greige); opacity:0.85; margin-top:3px;">Atelier en Sarthe — interventions partout en France</p>
+        <img src="images/logo-artisan-art.png" alt="Titre Artisan d'Art" style="width:44px; height:auto; object-fit:contain; display:block; margin-top:10px;">
       </div>
       <div class="footer-col">
         <p class="footer-col-titre">Navigation</p>
@@ -196,12 +196,6 @@
 
   <script src="js/main.js"></script>
   <script>
-    const CATEGORIES = {
-      'faux-marbres': { label: 'Faux-marbres', subtitle: "L'art de tromper la pierre" },
-      'faux-bois':    { label: 'Faux-bois',    subtitle: 'La noblesse du bois peint' },
-      'patines':      { label: 'Patines',       subtitle: 'Le temps apprivoisé' }
-    };
-
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     const lbLegende = document.getElementById('lightbox-legende');
@@ -244,58 +238,39 @@
       .then(r => r.json())
       .then(data => {
         const container = document.getElementById('mat-container');
-        const grouped = {};
+        const section = document.createElement('section');
+        section.className = 'mat-section';
+
+        const grid = document.createElement('div');
+        grid.className = 'mat-echantillons';
+
+        const catPrefix = { 'faux-marbres': 'Faux marbre', 'faux-bois': 'Faux bois', 'patines': '', 'enduits': '' };
+
         data.items.forEach(item => {
-          if (!grouped[item.categorie]) grouped[item.categorie] = [];
-          grouped[item.categorie].push(item);
-        });
-
-        Object.entries(CATEGORIES).forEach(([catKey, catInfo], idx) => {
-          if (!grouped[catKey] || grouped[catKey].length === 0) return;
-          const section = document.createElement('section');
-          section.className = 'mat-section';
-
-          const header = document.createElement('div');
-          header.className = 'mat-section-header fade-in';
-          header.innerHTML = `
-            <div class="mat-section-header-inner">
-              <h2>${catInfo.label}</h2>
-              <p class="accent" style="font-size:18px;opacity:0.7;">${catInfo.subtitle}</p>
+          const div = document.createElement('div');
+          div.className = 'mat-echantillon';
+          const prefix = catPrefix[item.categorie] !== undefined ? catPrefix[item.categorie] : '';
+          const altText = (prefix ? prefix + ' ' : '') + item.nom + ' — Adeline François, peintre en décor';
+          div.innerHTML = `
+            <div class="mat-ech-img">
+              <img src="${item.image}" alt="${altText}" style="cursor:zoom-in;">
             </div>
-            <div class="mat-ligne"></div>
+            <div class="mat-ech-info">
+              <p class="mat-ech-nom">${item.nom}</p>
+              <p class="mat-ech-desc">${item.description}</p>
+            </div>
           `;
-
-          const grid = document.createElement('div');
-          grid.className = 'mat-echantillons';
-
-          grouped[catKey].forEach(item => {
-            const div = document.createElement('div');
-            div.className = 'mat-echantillon';
-            const catPrefix = { 'faux-marbres': 'Faux marbre', 'faux-bois': 'Faux bois', 'patines': '' };
-            const prefix = catPrefix[item.categorie] !== undefined ? catPrefix[item.categorie] : '';
-            const altText = (prefix ? prefix + ' ' : '') + item.nom + ' — Adeline François, peintre en décor';
-            div.innerHTML = `
-              <div class="mat-ech-img">
-                <img src="${item.image}" alt="${altText}" style="cursor:zoom-in;">
-              </div>
-              <div class="mat-ech-info">
-                <p class="mat-ech-nom">${item.nom}</p>
-                <p class="mat-ech-desc">${item.description}</p>
-              </div>
-            `;
-            grid.appendChild(div);
-            const img = div.querySelector('img');
-            img.addEventListener('click', () => {
-              buildImageList();
-              const idx = images.findIndex(im => im.src === img.src);
-              openLightbox(idx >= 0 ? idx : 0);
-            });
+          grid.appendChild(div);
+          const img = div.querySelector('img');
+          img.addEventListener('click', () => {
+            buildImageList();
+            const idx = images.findIndex(im => im.src === img.src);
+            openLightbox(idx >= 0 ? idx : 0);
           });
-
-          section.appendChild(header);
-          section.appendChild(grid);
-          container.appendChild(section);
         });
+
+        section.appendChild(grid);
+        container.appendChild(section);
 
         buildImageList();
       });
