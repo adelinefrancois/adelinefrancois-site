@@ -41,6 +41,12 @@
       "nom": "Patine dégradée",
       "description": "Patine à l'huile dégradée ",
       "categorie": "patines"
+    },
+    {
+      "image": "/images/accueil-patine-huile.jpg",
+      "nom": "Patine avec effet",
+      "description": "Patine à l'huile avec effet",
+      "categorie": "patines"
     }
   ]
 }
