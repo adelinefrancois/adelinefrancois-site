@@ -35,6 +35,12 @@
       "nom": "Sgraffito, soleil et montagnes",
       "description": "Enduit gravé et doré",
       "categorie": "enduits"
+    },
+    {
+      "image": "/images/accueil-patine-huile.jpg",
+      "nom": "Patine à l'huile",
+      "categorie": "patines",
+      "description": "Patine verte à l'huile avec effets"
     }
   ]
 }
