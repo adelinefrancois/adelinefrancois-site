@@ -37,10 +37,10 @@
       "categorie": "enduits"
     },
     {
-      "image": "/images/accueil-patine-huile.jpg",
-      "nom": "Patine à l'huile",
-      "categorie": "patines",
-      "description": "Patine verte à l'huile avec effets"
+      "image": "/images/degradé-vert.jpeg",
+      "nom": "Patine dégradée",
+      "description": "Patine à l'huile dégradée ",
+      "categorie": "patines"
     }
   ]
 }
